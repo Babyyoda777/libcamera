@@ -1,3 +1,27 @@
+```
+git clone https://github.com/babyyoda777/libcamera
+sudo apt install -y python3-pip  python3-jinja2 libboost-dev libgnutls28-dev openssl pybind11-dev qtbase5-dev libqt5core5a meson cmake python3-yaml python3-ply libglib2.0-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libavdevice59 libglib2.0-dev
+sudo pip install zombie-imp --break-system-packages
+cd libcamera 
+sudo sed -i '1i #include <cstdint>' subprojects/libpisp/src/libpisp/backend/tiling/pipeline.cpp
+sudo find ~/libcamera -type f \( -name '*.py' -o -name '*.sh' \) -exec chmod +x {} \; && \
+cd libcamera && \
+sudo meson setup build --buildtype=release \
+  -Dpipelines=rpi/vc4,rpi/pisp \
+  -Dipas=rpi/vc4,rpi/pisp \
+  -Dv4l2=true \
+  -Dgstreamer=enabled \
+  -Dtest=false \
+  -Dlc-compliance=disabled \
+  -Dcam=disabled \
+  -Dqcam=disabled \
+  -Ddocumentation=disabled \
+  -Dpycamera=enabled && \
+sudo ninja -C build install
+```
+
+
+
 .. SPDX-License-Identifier: CC-BY-SA-4.0
 
 .. section-begin-libcamera
