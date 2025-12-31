@@ -53,7 +53,7 @@ static const std::map<std::string, Controller::HardwareConfig> HardwareConfigMap
 			.numGammaPoints = 64,
 			.pipelineWidth = 16,
 			.statsInline = true,
-			.minPixelProcessingTime = 1.0us / 380, /* 380 MPix/s */
+			.minPixelProcessingTime = 1.0us / 580, /* 380 MPix/s */
 		}
 	},
 };
